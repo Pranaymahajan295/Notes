@@ -1,0 +1,562 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+    background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+    min-height: 100vh;
+    color: #333;
+  }
+
+  .navbar {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    padding: 15px 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  .nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
+  .logo {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #1e3c72;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .logo::before {
+    content: "🎓";
+    font-size: 1.2em;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 30px;
+  }
+
+  .nav-links a {
+    text-decoration: none;
+    color: #555;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+
+  .nav-links a:hover {
+    color: #1e3c72;
+  }
+
+  .main-content {
+    margin-top: 80px;
+    padding: 40px 20px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-section {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .hero-title {
+    font-size: 3.5em;
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+
+  .hero-subtitle {
+    font-size: 1.3em;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 30px;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .search-bar {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    max-width: 500px;
+    margin: 0 auto 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  }
+
+  .search-bar input {
+    border: none;
+    outline: none;
+    flex: 1;
+    font-size: 1.1em;
+    padding: 5px;
+  }
+
+  .search-bar button {
+    background: #1e3c72;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .search-bar button:hover {
+    background: #2a5298;
+  }
+
+  .tabs {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+
+  .tab {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border: 2px solid transparent;
+  }
+
+  .tab.active {
+    background: white;
+    color: #1e3c72;
+    border: 2px solid #1e3c72;
+  }
+
+  .tab:hover {
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .tab.active:hover {
+    background: white;
+  }
+
+  .content-grid {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
+
+  .classes-section {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  }
+
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+  }
+
+  .section-title {
+    font-size: 1.8em;
+    font-weight: 700;
+    color: #1e3c72;
+  }
+
+  .add-btn {
+    background: #1e3c72;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 12px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+
+  .add-btn:hover {
+    background: #2a5298;
+  }
+
+  .class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .class-card {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 15px;
+    padding: 25px;
+    color: white;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .class-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+  }
+
+  .class-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      45deg,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .class-card:hover::before {
+    opacity: 1;
+  }
+
+  .class-number {
+    font-size: 2.5em;
+    font-weight: 900;
+    margin-bottom: 10px;
+    opacity: 0.8;
+  }
+
+  .class-info h3 {
+    font-size: 1.4em;
+    margin-bottom: 10px;
+    font-weight: 600;
+  }
+
+  .subject-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 15px;
+  }
+
+  .subject-tag {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    font-weight: 500;
+  }
+
+  .notes-count {
+    font-size: 0.9em;
+    opacity: 0.9;
+    margin-top: 10px;
+  }
+
+  .notes-panel {
+    background: white;
+    border-radius: 20px;
+    padding: 25px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    height: fit-content;
+    position: sticky;
+    top: 100px;
+    max-height: 80vh;
+    overflow-y: auto;
+  }
+
+  .notes-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .notes-title {
+    font-size: 1.4em;
+    font-weight: 700;
+    color: #1e3c72;
+  }
+
+  .note-item {
+    background: #f8f9fa;
+    border-radius: 12px;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-left: 4px solid #1e3c72;
+    transition: all 0.3s ease;
+    cursor: pointer;
+  }
+
+  .note-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+  }
+
+  .note-title {
+    font-weight: 600;
+    color: #1e3c72;
+    margin-bottom: 5px;
+  }
+
+  .note-preview {
+    font-size: 0.9em;
+    color: #666;
+    line-height: 1.4;
+  }
+
+  .note-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+    font-size: 0.8em;
+    color: #999;
+  }
+
+  .add-note-btn {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  .add-note-btn:hover {
+    background: #218838;
+  }
+
+  .stats-bar {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 20px;
+    padding: 25px;
+    margin-top: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+  }
+
+  .stat-item {
+    text-align: center;
+    padding: 15px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+  }
+
+  .stat-number {
+    font-size: 2.2em;
+    font-weight: 800;
+    margin-bottom: 5px;
+  }
+
+  .stat-label {
+    font-size: 0.9em;
+    opacity: 0.9;
+  }
+
+  .floating-notes {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 1.5em;
+    cursor: pointer;
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.3);
+    transition: all 0.3s ease;
+    z-index: 1000;
+  }
+
+  .note-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+  }
+
+  .note-modal.active {
+    display: flex;
+  }
+
+  .note-content {
+    background: white;
+    border-radius: 20px;
+    padding: 30px;
+    max-width: 800px;
+    width: 90%;
+    max-height: 80vh;
+    overflow-y: auto;
+    position: relative;
+  }
+
+  .note-content h2 {
+    color: #1e3c72;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+  }
+
+  .note-content .subject-badge {
+    background: #1e3c72;
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+
+  .note-content .close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    cursor: pointer;
+    color: #999;
+  }
+
+  .note-content .close-btn:hover {
+    color: #333;
+  }
+
+  .note-body {
+    line-height: 1.6;
+    color: #333;
+  }
+
+  .note-body h3 {
+    color: #1e3c72;
+    margin: 20px 0 10px 0;
+    font-size: 1.3em;
+  }
+
+  .note-body p {
+    margin-bottom: 15px;
+  }
+
+  .note-body ul {
+    margin: 10px 0 20px 20px;
+  }
+
+  .note-body li {
+    margin-bottom: 8px;
+  }
+
+  .formula-box {
+    background: #f8f9fa;
+    border-left: 4px solid #1e3c72;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 5px;
+    font-family: "Courier New", monospace;
+  }
+
+  .highlight {
+    background: #fff3cd;
+    padding: 2px 4px;
+    border-radius: 3px;
+  }
+
+  .note-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: flex-end;
+  }
+
+  .action-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  .edit-btn {
+    background: #28a745;
+    color: white;
+  }
+
+  .edit-btn:hover {
+    background: #218838;
+  }
+
+  .delete-btn {
+    background: #dc3545;
+    color: white;
+  }
+
+  .delete-btn:hover {
+    background: #c82333;
+  }
+
+  .share-btn {
+    background: #007bff;
+    color: white;
+  }
+
+  .share-btn:hover {
+    background: #0056b3;
+  }
+
+  @media (max-width: 768px) {
+    .content-grid {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .hero-title {
+      font-size: 2.5em;
+    }
+
+    .nav-links {
+      display: none;
+    }
+
+    .tabs {
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .class-grid {
+      grid-template-columns: 1fr;
+    }
+  }

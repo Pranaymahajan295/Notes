@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yash Thakre</title>
+    <link rel="stylesheet" href="./Css/style.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-content">
+        <div class="logo">
+          Colleges projects
+          <span style="font-size: 20px; color: black">(Yash Thakre)</span>
+        </div>
+        <div class="nav-links">
+          <a href="#" onclick="showTab('classes')">Classes</a>
+          <a href="#" onclick="showTab('notes')">My Notes</a>
+          <a href="#" onclick="showTab('library')">Library</a>
+          <a href="#" onclick="showTab('profile')">Profile</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="main-content">
+      <div class="hero-section">
+        <h1 class="hero-title">Your Academic Journey</h1>
+        <p class="hero-subtitle">
+          Access comprehensive study materials, organize your notes, and excel
+          in your academic pursuits
+        </p>
+
+        <div class="search-bar">
+          <input
+            type="text"
+            placeholder="Search classes, notes, or subjects..."
+            id="searchInput"
+          />
+          <button onclick="searchContent()">🔍 Search</button>
+        </div>
+      </div>
+
+      <div class="tabs">
+        <div class="tab active" onclick="showTab('classes')">📚 Classes</div>
+        <div class="tab" onclick="showTab('notes')">📝 My Notes</div>
+        <div class="tab" onclick="showTab('library')">📖 Library</div>
+        <div class="tab" onclick="showTab('assignments')">📋 Assignments</div>
+      </div>
+
+      <div class="content-grid">
+        <div class="classes-section" id="classesSection">
+          <div class="section-header">
+            <h2 class="section-title">Available Classes</h2>
+            <button class="add-btn" onclick="addClass()">+ Add Class</button>
+          </div>
+
+          <div class="class-grid" id="classGrid">
+            <div class="class-card" onclick="openClass(8)">
+              <div class="class-number">8</div>
+              <div class="class-info">
+                <h3>Class 8</h3>
+                <div class="subject-tags">
+                  <span class="subject-tag">Physics</span>
+                  <span class="subject-tag">Chemistry</span>
+                  <span class="subject-tag">Biology</span>
+                  <span class="subject-tag">Math</span>
+                </div>
+                <div class="notes-count">📄 24 Notes Available</div>
+              </div>
+            </div>
+
+            <div class="class-card" onclick="openClass(9)">
+              <div class="class-number">9</div>
+              <div class="class-info">
+                <h3>Class 9</h3>
+                <div class="subject-tags">
+                  <span class="subject-tag">Physics</span>
+                  <span class="subject-tag">Chemistry</span>
+                  <span class="subject-tag">Biology</span>
+                  <span class="subject-tag">Math</span>
+                  <span class="subject-tag">English</span>
+                </div>
+                <div class="notes-count">📄 32 Notes Available</div>
+              </div>
+            </div>
+
+            <div class="class-card" onclick="openClass(10)">
+              <div class="class-number">10</div>
+              <div class="class-info">
+                <h3>Class 10</h3>
+                <div class="subject-tags">
+                  <span class="subject-tag">Physics</span>
+                  <span class="subject-tag">Chemistry</span>
+                  <span class="subject-tag">Biology</span>
+                  <span class="subject-tag">Math</span>
+                  <span class="subject-tag">Social Studies</span>
+                </div>
+                <div class="notes-count">📄 28 Notes Available</div>
+              </div>
+            </div>
+
+            <div class="class-card" onclick="openClass(11)">
+              <div class="class-number">11</div>
+              <div class="class-info">
+                <h3>Class 11</h3>
+                <div class="subject-tags">
+                  <span class="subject-tag">Physics</span>
+                  <span class="subject-tag">Chemistry</span>
+                  <span class="subject-tag">Biology</span>
+                  <span class="subject-tag">Math</span>
+                  <span class="subject-tag">Computer</span>
+                </div>
+                <div class="notes-count">📄 35 Notes Available</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="notes-panel">
+          <div class="notes-header">
+            <h3 class="notes-title">Recent Notes</h3>
+            <button class="add-note-btn" onclick="addNote()">+ Add Note</button>
+          </div>
+
+          <div class="note-item" onclick="openNote('physics-motion')">
+            <div class="note-title">Physics - Motion & Force</div>
+            <div class="note-preview">
+              Newton's laws of motion, equations of motion, and their
+              applications in solving real-world problems...
+            </div>
+            <div class="note-meta">
+              <span>📅 Today</span>
+              <span>📝 Physics</span>
+            </div>
+          </div>
+
+          <div class="note-item" onclick="openNote('chemistry-acids')">
+            <div class="note-title">Chemistry - Acids & Bases</div>
+            <div class="note-preview">
+              Complete guide to pH scale, indicators, neutralization reactions,
+              and salt formation...
+            </div>
+            <div class="note-meta">
+              <span>📅 Yesterday</span>
+              <span>🧪 Chemistry</span>
+            </div>
+          </div>
+
+          <div class="note-item" onclick="openNote('biology-cells')">
+            <div class="note-title">Biology - Cell Structure</div>
+            <div class="note-preview">
+              Detailed study of plant and animal cell components, organelles,
+              and their functions...
+            </div>
+            <div class="note-meta">
+              <span>📅 2 days ago</span>
+              <span>🔬 Biology</span>
+            </div>
+          </div>
+
+          <div class="note-item" onclick="openNote('math-algebra')">
+            <div class="note-title">Math - Algebraic Expressions</div>
+            <div class="note-preview">
+              Solving linear equations, quadratic formulas, and algebraic
+              identities with examples...
+            </div>
+            <div class="note-meta">
+              <span>📅 3 days ago</span>
+              <span>📐 Mathematics</span>
+            </div>
+          </div>
+
+          <div class="note-item" onclick="openNote('english-grammar')">
+            <div class="note-title">English - Grammar Rules</div>
+            <div class="note-preview">
+              Parts of speech, tenses, voice, and sentence structure with
+              practical examples...
+            </div>
+            <div class="note-meta">
+              <span>📅 4 days ago</span>
+              <span>📚 English</span>
+            </div>
+          </div>
+
+          <div class="note-item" onclick="openNote('social-history')">
+            <div class="note-title">Social Studies - Indian History</div>
+            <div class="note-preview">
+              Ancient civilizations, medieval period, freedom struggle, and
+              modern India...
+            </div>
+            <div class="note-meta">
+              <span>📅 5 days ago</span>
+              <span>🏛️ History</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-bar">
+        <div class="stat-item">
+          <div class="stat-number">119</div>
+          <div class="stat-label">Total Notes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">12</div>
+          <div class="stat-label">Subjects</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Active Classes</div>
+        </div>
+        <div class="stat-item">
+          <div class="stat-number">87%</div>
+          <div class="stat-label">Progress</div>
+        </div>
+      </div>
+    </div>
+
+    <button class="floating-notes" onclick="quickNote()" title="Quick Note">✏️</button>
+
+    <!-- Note Modal -->
+    <div class="note-modal" id="noteModal">
+      <div class="note-content" id="noteContent">
+        <button class="close-btn" onclick="closeNote()">&times;</button>
+      </div>
+    </div>
+    <!-- End of Note Modal -->
+    <script src="./Js/Javascript.js"></script>
+  </body>
+</html>
